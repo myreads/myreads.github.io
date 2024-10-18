@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyReads - A Heaven for Bibliophiles</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #6a4b93;
+            padding: 20px;
+            color: white;
+        }
+
+        .logo img {
+            height: 80px;
+        }
+
+        .tagline h1 {
+            font-size: 36px;
+            margin: 0;
+            color: #ffeb3b;
+        }
+
+        .tagline p {
+            font-size: 18px;
+            font-style: italic;
+            margin-top: 5px;
+            color: #ffffff;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .search-bar input {
+            width: 40%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .search-bar button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #6a4b93;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-bar button:hover {
+            background-color: #563d7c;
+        }
+
+        /* Main Menu */
+        .main-menu {
+            background-color: #f5f5f5;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .main-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .main-menu ul li {
+            position: relative;
+            margin: 0 20px;
+        }
+
+        .main-menu ul li a {
+            text-decoration: none;
+            color: #6a4b93;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .main-menu ul li ul.dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            background-color: #f5f5f5;
+            padding: 10px;
+            list-style: none;
+            text-align: left;
+        }
+
+        .main-menu ul li:hover ul.dropdown {
+            display: block;
+        }
+
+        .main-menu ul li ul.dropdown li {
+            margin: 5px 0;
+        }
+
+        .main-menu ul li ul.dropdown li a {
+            color: #333;
+        }
+
+        /* Library Section */
+        .library {
+            padding: 50px;
+            text-align: center;
+            background-color: #e9e9e9;
+        }
+
+        .library h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .library button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #6a4b93;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .library button:hover {
+            background-color: #563d7c;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #6a4b93;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .footer-menu ul li {
+            margin: 0 15px;
+        }
+
+        .footer-menu ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+        }
+
+        .footer-menu ul li a:hover {
+            text-decoration: underline;
+        }
+
+        footer p {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with Logo and Tagline -->
+    <header>
+        <div class="logo">
+            <img src="C:/Users/Manal Nadeem/Downloads/logo.jpg" alt="MyReads Logo">
+        </div>
+        <div class="tagline">
+            <h1>MyReads</h1>
+            <p>A Heaven for Bibliophiles</p>
+        </div>
+    </header>
+
+    <!-- Search Bar -->
+    <section class="search-bar">
+        <input type="text" placeholder="Search for books...">
+        <button>Search</button>
+    </section>
+
+    <!-- Navigation Menu -->
+    <nav class="main-menu">
+        <ul>
+            <li><a href="#">Urdu Fiction</a>
+                <ul class="dropdown">
+                    <li><a href="#">Romcom</a></li>
+                    <li><a href="#">Romance</a></li>
+                    <li><a href="#">Love Triangle</a></li>
+                    <li><a href="#">Thrill</a></li>
+                </ul>
+            </li>
+            <li><a href="#">English Fiction</a>
+                <ul class="dropdown">
+                    <li><a href="#">Romcom</a></li>
+                    <li><a href="#">Romance</a></li>
+                    <li><a href="#">Love Triangle</a></li>
+                    <li><a href="#">Thrill</a></li>
+                </ul>
+            </li>
+            <li><a href="#">My eBooks</a></li>
+            <li><a href="#">Library</a></li>
+        </ul>
+    </nav>
+
+    <!-- Library Section -->
+    <section class="library">
+        <h2>Your Library</h2>
+        <p>Add and offline your favorite books here.</p>
+        <button>Add a Book</button>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <nav class="footer-menu">
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+            </ul>
+        </nav>
+        <p>&copy; 2024 MyReads. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
