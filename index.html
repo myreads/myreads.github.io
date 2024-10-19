@@ -14,37 +14,99 @@
             color: #333;
         }
 
-        /* Header */
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #6a4b93;
-            padding: 20px;
+        /* Hero Image */
+        .hero-image {
+            position: relative;
+            text-align: center;
             color: white;
         }
 
-        .logo img {
-            height: 80px;
+        .hero-image img {
+            width: 100%;
+            height: auto;
         }
 
-        .tagline h1 {
+        .hero-text {
+            position: absolute;
+            top: 30%; /* Adjust to move the text down */
+            left: 50%;
+            transform: translate(-50%, -50%);
             font-size: 36px;
-            margin: 0;
-            color: #ffeb3b;
+            color: white;
         }
 
-        .tagline p {
+        .hero-text h1 {
+            font-size: 48px;
+            margin: 0;
+            text-shadow: 2px 2px 8px #000;
+        }
+
+        .hero-text p {
+            font-size: 24px;
+            text-shadow: 2px 2px 8px #000;
+        }
+
+        /* Main Menu on Hero Image */
+        .main-menu {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .main-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .main-menu ul li {
+            position: relative;
+            margin: 0 15px;
+        }
+
+        .main-menu ul li a {
+            text-decoration: none;
+            color: black; /* Change to black */
+            font-weight: bold; /* Bold font */
             font-size: 18px;
-            font-style: italic;
-            margin-top: 5px;
-            color: #ffffff;
+        }
+
+        .main-menu ul li ul.dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            background-color: #f5f5f5;
+            padding: 10px;
+            list-style: none;
+            text-align: left;
+        }
+
+        .main-menu ul li:hover ul.dropdown {
+            display: block;
+        }
+
+        .main-menu ul li ul.dropdown li {
+            margin: 5px 0;
+        }
+
+        .main-menu ul li ul.dropdown li a {
+            color: #333;
         }
 
         /* Search Bar */
         .search-bar {
             text-align: center;
             padding: 20px;
+            position: absolute;
+            top: 60%; /* Adjust position */
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         .search-bar input {
@@ -69,66 +131,37 @@
             background-color: #563d7c;
         }
 
-        /* Hero Image */
-        .hero-image {
-            position: relative;
-            text-align: center;
-            color: white;
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: auto;
-        }
-
-        .hero-text {
+        /* Featured Categories */
+        .featured-categories {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
             position: absolute;
-            top: 50%;
+            top: 75%; /* Adjust position */
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 36px;
-            color: white;
         }
 
-        .hero-text h1 {
-            font-size: 48px;
-            margin: 0;
-            text-shadow: 2px 2px 8px #000;
+        .category-card {
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+            width: 200px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        .hero-text p {
-            font-size: 24px;
-            text-shadow: 2px 2px 8px #000;
-        }
-
-        /* Main Menu on Hero Image */
-        .main-menu {
-            position: absolute;
-            top: 10px; /* Adjust this value as needed */
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
-            padding: 10px 20px;
+        .category-card img {
+            width: 100%; /* Make images responsive */
+            height: auto;
             border-radius: 5px;
         }
 
-        .main-menu ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-        }
-
-        .main-menu ul li {
-            margin: 0 15px;
-        }
-
-        .main-menu ul li a {
-            text-decoration: none;
-            color: black; /* Change to black */
-            font-weight: bold; /* Bold font */
-            font-size: 18px;
+        .category-card h3 {
+            margin: 10px 0;
+            color: #6a4b93;
         }
 
         /* Library Section */
@@ -196,11 +229,7 @@
 <body>
 <header class="hero-image">
     <img src="DALL·E 2024-10-19 09.40.52 - A beautiful, calming hero image that attracts bibliophiles, featuring a realistic and aesthetic library scene. The image should include warm, soft lig.webp" alt="Hero Image">
-    <div class="hero-text">
-        <h1>Welcome to MyReads</h1>
-        <p>A heaven for bibliophiles!</p>
-    </div>
-
+    
     <!-- Main Menu on Hero Image -->
     <nav class="main-menu">
         <ul>
@@ -228,24 +257,32 @@
             <li><a href="#">My eBooks</a></li>
         </ul>
     </nav>
-</header>
 
-<!-- Header with Logo and Tagline -->
-<header>
-    <div class="logo">
-        <img src="C:/Users/Manal Nadeem/Downloads/logo.jpg" alt="MyReads Logo">
+    <div class="hero-text">
+        <h1>Welcome to MyReads</h1>
+        <p>A heaven for bibliophiles!</p>
     </div>
-    <div class="tagline">
-        <h1>MyReads</h1>
-        <p>A Heaven for Bibliophiles</p>
-    </div>
-</header>
 
-<!-- Search Bar -->
-<section class="search-bar">
-    <input type="text" placeholder="Search for books...">
-    <button>Search</button>
-</section>
+    <!-- Search Bar -->
+    <section class="search-bar">
+        <input type="text" placeholder="Search for books...">
+        <button>Search</button>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="featured-categories">
+        <div class="category-card">
+            <img src="urdu novels (1).png" alt="Urdu Novels">
+            <h3>Urdu Novels</h3>
+            <p>Explore our collection of Urdu novels.</p>
+        </div>
+        <div class="category-card">
+            <img src="urdu novels.png" alt="English Novels">
+            <h3>English Novels</h3>
+            <p>Discover the best English novels.</p>
+        </div>
+    </section>
+</header>
 
 <!-- Library Section -->
 <section class="library">
