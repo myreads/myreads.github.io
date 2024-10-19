@@ -69,11 +69,47 @@
             background-color: #563d7c;
         }
 
-        /* Main Menu */
-        .main-menu {
-            background-color: #f5f5f5;
-            padding: 10px 0;
+        /* Hero Image */
+        .hero-image {
+            position: relative;
             text-align: center;
+            color: white;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 36px;
+            color: white;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            margin: 0;
+            text-shadow: 2px 2px 8px #000;
+        }
+
+        .hero-text p {
+            font-size: 24px;
+            text-shadow: 2px 2px 8px #000;
+        }
+
+        /* Main Menu on Hero Image */
+        .main-menu {
+            position: absolute;
+            top: 10px; /* Adjust this value as needed */
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+            padding: 10px 20px;
+            border-radius: 5px;
         }
 
         .main-menu ul {
@@ -85,37 +121,14 @@
         }
 
         .main-menu ul li {
-            position: relative;
-            margin: 0 20px;
+            margin: 0 15px;
         }
 
         .main-menu ul li a {
             text-decoration: none;
-            color: #6a4b93;
-            font-weight: bold;
+            color: black; /* Change to black */
+            font-weight: bold; /* Bold font */
             font-size: 18px;
-        }
-
-        .main-menu ul li ul.dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            background-color: #f5f5f5;
-            padding: 10px;
-            list-style: none;
-            text-align: left;
-        }
-
-        .main-menu ul li:hover ul.dropdown {
-            display: block;
-        }
-
-        .main-menu ul li ul.dropdown li {
-            margin: 5px 0;
-        }
-
-        .main-menu ul li ul.dropdown li a {
-            color: #333;
         }
 
         /* Library Section */
@@ -179,120 +192,80 @@
             font-size: 14px;
         }
     </style>
-    <style>
-.hero-image {
-    position: relative;
-    text-align: center;
-    color: white;
-}
-
-.hero-image img {
-    width: 100%;
-    height: auto;
-}
-
-.hero-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 36px;
-    color: white;
-}
-
-.hero-text h1 {
-    font-size: 48px;
-    margin: 0;
-    text-shadow: 2px 2px 8px #000;
-}
-
-.hero-text p {
-    font-size: 24px;
-    text-shadow: 2px 2px 8px #000;
-}
-</style>
-
 </head>
 <body>
 <header class="hero-image">
-    <img src="DALL·E 2024-10-19 09.40.52 - A beautiful, calming hero image that attracts bibliophiles, featuring a realistic and aesthetic library scene. The image should include warm, soft lig.webp" alt="Hero Image" style="width:100%; height:auto;">
+    <img src="DALL·E 2024-10-19 09.40.52 - A beautiful, calming hero image that attracts bibliophiles, featuring a realistic and aesthetic library scene. The image should include warm, soft lig.webp" alt="Hero Image">
     <div class="hero-text">
         <h1>Welcome to MyReads</h1>
         <p>A heaven for bibliophiles!</p>
     </div>
+
+    <!-- Main Menu on Hero Image -->
+    <nav class="main-menu">
+        <ul>
+            <li><a href="#">Urdu Fiction</a>
+                <ul class="dropdown">
+                    <li><a href="#">Romcom</a></li>
+                    <li><a href="#">Romance</a></li>
+                    <li><a href="#">Love Triangle</a></li>
+                    <li><a href="#">Thrill</a></li>
+                    <li><a href="#">Halal Romance</a></li>
+                    <li><a href="#">Social/Realistic</a></li>
+                </ul>
+            </li>
+            <li><a href="#">English Fiction</a>
+                <ul class="dropdown">
+                    <li><a href="#">Romcom</a></li>
+                    <li><a href="#">Romance</a></li>
+                    <li><a href="#">Love Triangle</a></li>
+                    <li><a href="#">Thrill</a></li>
+                    <li><a href="#">Halal Romance</a></li>
+                    <li><a href="#">Social/Realistic</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Library</a></li>
+            <li><a href="#">My eBooks</a></li>
+        </ul>
+    </nav>
 </header>
 
-    <!-- Header with Logo and Tagline -->
-    <header>
-        <div class="logo">
-            <img src="C:/Users/Manal Nadeem/Downloads/logo.jpg" alt="MyReads Logo">
-        </div>
-        <div class="tagline">
-            <h1>MyReads</h1>
-            <p>A Heaven for Bibliophiles</p>
-        </div>
-    </header>
+<!-- Header with Logo and Tagline -->
+<header>
+    <div class="logo">
+        <img src="C:/Users/Manal Nadeem/Downloads/logo.jpg" alt="MyReads Logo">
+    </div>
+    <div class="tagline">
+        <h1>MyReads</h1>
+        <p>A Heaven for Bibliophiles</p>
+    </div>
+</header>
 
-    <!-- Search Bar -->
-    <section class="search-bar">
-        <input type="text" placeholder="Search for books...">
-        <button>Search</button>
-    </section>
+<!-- Search Bar -->
+<section class="search-bar">
+    <input type="text" placeholder="Search for books...">
+    <button>Search</button>
+</section>
 
-    <!-- Navigation Menu -->
-    <nav class="main-menu"><ul>
-    <!-- Urdu Fiction -->
-    <li><a href="#">Urdu Fiction</a>
-        <ul class="dropdown">
-            <li><a href="#">Romcom</a></li>
-            <li><a href="#">Romance</a></li>
-            <li><a href="#">Love Triangle</a></li>
-            <li><a href="#">Thrill</a></li>
-            <li><a href="#">Halal Romance</a></li>
-            <li><a href="#">Social/Realistic</a></li>
+<!-- Library Section -->
+<section class="library">
+    <h2>Your Library</h2>
+    <p>Add and offline your favorite books here.</p>
+    <button>Add a Book</button>
+</section>
+
+<!-- Footer Section -->
+<footer>
+    <nav class="footer-menu">
+        <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
         </ul>
-    </li>
-
-    <!-- English Fiction -->
-    <li><a href="#">English Fiction</a>
-        <ul class="dropdown">
-            <li><a href="#">Romcom</a></li>
-            <li><a href="#">Romance</a></li>
-            <li><a href="#">Love Triangle</a></li>
-            <li><a href="#">Thrill</a></li>
-            <li><a href="#">Halal Romance</a></li>
-            <li><a href="#">Social/Realistic</a></li>
-        </ul>
-    </li>
-
-    <!-- Library -->
-    <li><a href="#">Library</a></li>
-
-    <!-- My eBooks -->
-    <li><a href="#">My eBooks</a></li>
-</ul>
-
     </nav>
-
-    <!-- Library Section -->
-    <section class="library">
-        <h2>Your Library</h2>
-        <p>Add and offline your favorite books here.</p>
-        <button>Add a Book</button>
-    </section>
-
-    <!-- Footer Section -->
-    <footer>
-        <nav class="footer-menu">
-            <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
-            </ul>
-        </nav>
-        <p>&copy; 2024 MyReads. All Rights Reserved.</p>
-    </footer>
+    <p>&copy; 2024 MyReads. All Rights Reserved.</p>
+</footer>
 
 </body>
 </html>
