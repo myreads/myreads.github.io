@@ -19,37 +19,23 @@
             position: relative;
             text-align: center;
             color: white;
-            background-image: url('background.jpg'); /* Background image */
+            background-image: url('background.jpg');
             background-size: cover;
             background-position: center;
-            height: 100vh; /* Full height */
-        }
-
-        .hero-text {
-            position: absolute;
-            top: 20%; /* Adjust to move the text down */
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 48px;
-            color: #ffeb3b; /* Prominent color */
-            text-shadow: 2px 2px 8px #000;
-        }
-
-        .hero-text p {
-            font-size: 28px; /* Larger font for the tagline */
-            color: #ffffff; /* White for contrast */
-            text-shadow: 2px 2px 8px #000;
+            height: 100vh;
         }
 
         /* Main Menu */
         .main-menu {
-            position: absolute;
-            top: 10%;
+            position: fixed; /* Set to fixed for it to stay at the top */
+            top: 0;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+            background: rgba(255, 255, 255, 0.9);
             padding: 10px 20px;
             border-radius: 5px;
+            z-index: 1000; /* Ensure it's on top */
+            width: 100%; /* Full width */
         }
 
         .main-menu ul {
@@ -61,14 +47,13 @@
         }
 
         .main-menu ul li {
-            position: relative;
             margin: 0 15px;
         }
 
         .main-menu ul li a {
             text-decoration: none;
-            color: black; /* Change to black */
-            font-weight: bold; /* Bold font */
+            color: black;
+            font-weight: bold;
             font-size: 18px;
         }
 
@@ -79,25 +64,33 @@
             background-color: #f5f5f5;
             padding: 10px;
             list-style: none;
-            text-align: left;
         }
 
         .main-menu ul li:hover ul.dropdown {
             display: block;
         }
 
-        .main-menu ul li ul.dropdown li {
-            margin: 5px 0;
+        /* Hero Text */
+        .hero-text {
+            position: absolute;
+            top: 30%; /* Move down to avoid overlap with menu */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 36px; /* Reduced size */
+            color: #ffeb3b;
+            text-shadow: 2px 2px 8px #000;
         }
 
-        .main-menu ul li ul.dropdown li a {
-            color: #333;
+        .hero-text p {
+            font-size: 24px; /* Adjusted tagline size */
+            color: #ffffff;
+            text-shadow: 2px 2px 8px #000;
         }
 
         /* Search Bar */
         .search-bar {
             position: absolute;
-            top: 35%; /* Adjust position */
+            top: 50%; /* Placed below hero text */
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
@@ -129,32 +122,60 @@
         .library {
             padding: 50px;
             text-align: center;
-            background-color: rgba(233, 233, 233, 0.9); /* Semi-transparent background */
+            background-color: rgba(233, 233, 233, 0.9);
             margin: 20px auto;
-            width: 80%; /* Control width */
+            width: 80%;
             border-radius: 5px;
-            position: relative; /* Relative positioning */
-            z-index: 1; /* Above the background */
+            position: relative;
+            z-index: 1;
         }
 
         .library h2 {
             font-size: 30px;
             margin-bottom: 20px;
-            color: #6a4b93; /* Change color */
+            color: #6a4b93;
         }
 
-        .library button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #6a4b93;
-            color: white;
-            border: none;
-            border-radius: 5px;
+        /* Sign Up / Login */
+        .auth-options {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        .auth-options a {
+            margin: 0 10px;
+            color: #6a4b93;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .auth-options a:hover {
+            text-decoration: underline;
+        }
+
+        /* Rating System */
+        .rating {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .rating input {
+            display: none;
+        }
+
+        .rating label {
+            font-size: 30px;
+            color: gray;
             cursor: pointer;
         }
 
-        .library button:hover {
-            background-color: #563d7c;
+        .rating input:checked ~ label {
+            color: gold;
+        }
+
+        .rating input:hover ~ label {
+            color: gold;
         }
 
         /* Featured Categories */
@@ -162,8 +183,6 @@
             display: flex;
             justify-content: center;
             margin: 20px 0;
-            position: relative; /* Relative positioning */
-            z-index: 1; /* Above the background */
         }
 
         .category-card {
@@ -178,7 +197,7 @@
         }
 
         .category-card img {
-            width: 100%; /* Make images responsive */
+            width: 100%;
             height: auto;
             border-radius: 5px;
         }
@@ -226,11 +245,6 @@
 </head>
 <body>
     <header class="hero-image">
-        <div class="hero-text">
-            <h1>Welcome to MyReads</h1>
-            <p>A heaven for bibliophiles!</p>
-        </div>
-
         <!-- Main Menu -->
         <nav class="main-menu">
             <ul>
@@ -259,6 +273,12 @@
             </ul>
         </nav>
 
+        <!-- Hero Text -->
+        <div class="hero-text">
+            <h1>Welcome to MyReads</h1>
+            <p>A heaven for bibliophiles!</p>
+        </div>
+
         <!-- Search Bar -->
         <section class="search-bar">
             <input type="text" placeholder="Search for books...">
@@ -271,7 +291,21 @@
         <h2>Your Library</h2>
         <p>Add and offline your favorite books here.</p>
         <button>Add a Book</button>
+
+        <!-- Sign Up / Login Links -->
+        <div class="auth-options">
+            <a href="#">Sign Up</a> | <a href="#">Login</a>
+        </div>
     </section>
+
+    <!-- Rating System -->
+    <div class="rating">
+        <input type="radio" name="star" id="star1"><label for="star1">★</label>
+        <input type="radio" name="star" id="star2"><label for="star2">★</label>
+        <input type="radio" name="star" id="star3"><label for="star3">★</label>
+        <input type="radio" name="star" id="star4"><label for="star4">★</label>
+        <input type="radio" name="star" id="star5"><label for="star5">★</label>
+    </div>
 
     <!-- Featured Categories -->
     <section class="featured-categories">
