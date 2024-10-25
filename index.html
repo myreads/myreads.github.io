@@ -4,334 +4,422 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyReads - A Heaven for Bibliophiles</title>
+
+    <!-- Link to FontAwesome for social media icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
-        /* General Styles */
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f7f7f7;
-            color: #333;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
         }
 
-        /* Hero Image */
-        .hero-image {
-            position: relative;
-            text-align: center;
+        header {
+            background-color: #4CAF50;
+            padding: 1rem;
             color: white;
-            background-image: url('background.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
+            text-align: center;
         }
 
-        /* Main Menu */
-        .main-menu {
-            position: fixed; /* Set to fixed for it to stay at the top */
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.9);
-            padding: 10px 20px;
-            border-radius: 5px;
-            z-index: 1000; /* Ensure it's on top */
-            width: 100%; /* Full width */
-        }
-
-        .main-menu ul {
+        /* Main Navigation Menu */
+        nav ul {
             list-style: none;
-            padding: 0;
-            margin: 0;
             display: flex;
             justify-content: center;
+            padding: 0.5rem;
         }
 
-        .main-menu ul li {
+        nav ul li {
             margin: 0 15px;
+            position: relative;
         }
 
-        .main-menu ul li a {
+        nav ul li a {
+            color: white;
             text-decoration: none;
-            color: black;
-            font-weight: bold;
-            font-size: 18px;
         }
 
-        .main-menu ul li ul.dropdown {
+        nav ul li ul {
             display: none;
             position: absolute;
-            top: 100%;
-            background-color: #f5f5f5;
+            background-color: #333;
+            top: 30px;
+            left: 0;
             padding: 10px;
-            list-style: none;
+            z-index: 10;
         }
 
-        .main-menu ul li:hover ul.dropdown {
+        nav ul li:hover ul {
             display: block;
         }
 
-        /* Hero Text */
-        .hero-text {
+        nav ul li ul li {
+            margin: 5px 0;
+        }
+
+        nav ul li ul li a {
+            color: white;
+        }
+
+        /* Hamburger Menu for Mobile */
+        .hamburger {
+            display: none;
+            font-size: 30px;
+            color: white;
             position: absolute;
-            top: 30%; /* Move down to avoid overlap with menu */
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 36px; /* Reduced size */
-            color: #ffeb3b;
-            text-shadow: 2px 2px 8px #000;
+            top: 20px;
+            left: 20px;
+            cursor: pointer;
         }
 
-        .hero-text p {
-            font-size: 24px; /* Adjusted tagline size */
-            color: #ffffff;
-            text-shadow: 2px 2px 8px #000;
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background-color: #333;
+            width: 100%;
+            padding: 20px 0;
+            position: absolute;
+            top: 70px;
+            left: 0;
+            z-index: 1000;
         }
 
-        /* Search Bar */
+        .mobile-menu a {
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+
+        .mobile-menu a:hover {
+            background-color: #444;
+        }
+
+        /* Search Bar with Icon */
         .search-bar {
-            position: absolute;
-            top: 50%; /* Placed below hero text */
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            position: relative;
         }
 
         .search-bar input {
-            width: 40%;
+            width: 50%;
             padding: 10px;
             font-size: 16px;
-            border-radius: 5px;
+            border-radius: 25px;
             border: 1px solid #ccc;
         }
 
         .search-bar button {
-            padding: 10px 20px;
-            font-size: 16px;
+            background-color: #4CAF50;
             border: none;
-            background-color: #6a4b93;
-            color: white;
-            border-radius: 5px;
+            padding: 10px;
+            border-radius: 25px;
             cursor: pointer;
+            color: white;
+            margin-left: -50px;
+            position: absolute;
+            right: 30%;
         }
 
-        .search-bar button:hover {
-            background-color: #563d7c;
+        .search-bar button i {
+            font-size: 20px;
+            color: white;
+        }
+
+        main {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-around;
+        }
+
+        .card {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 8px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            margin: 15px 0 10px;
+        }
+
+        .card p {
+            color: #666;
         }
 
         /* Library Section */
-        .library {
-            padding: 50px;
-            text-align: center;
-            background-color: rgba(233, 233, 233, 0.9);
-            margin: 20px auto;
-            width: 80%;
-            border-radius: 5px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .library h2 {
-            font-size: 30px;
-            margin-bottom: 20px;
-            color: #6a4b93;
-        }
-
-        /* Sign Up / Login */
-        .auth-options {
-            margin-top: 20px;
-            font-size: 18px;
-        }
-
-        .auth-options a {
-            margin: 0 10px;
-            color: #6a4b93;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .auth-options a:hover {
-            text-decoration: underline;
-        }
-
-        /* Rating System */
-        .rating {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .rating input {
-            display: none;
-        }
-
-        .rating label {
-            font-size: 30px;
-            color: gray;
-            cursor: pointer;
-        }
-
-        .rating input:checked ~ label {
-            color: gold;
-        }
-
-        .rating input:hover ~ label {
-            color: gold;
-        }
-
-        /* Featured Categories */
-        .featured-categories {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
-
-        .category-card {
-            background: white;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin: 10px;
+        #library-section {
+            margin-top: 40px;
             padding: 20px;
-            text-align: center;
-            width: 200px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .category-card img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
+        #book-list {
+            margin-top: 20px;
         }
 
-        .category-card h3 {
-            margin: 10px 0;
-            color: #6a4b93;
+        .book {
+            margin: 5px 0;
         }
 
-        /* Footer */
+        /* Footer Menu with Social Media Icons */
         footer {
-            background-color: #6a4b93;
+            background-color: #333;
             color: white;
-            padding: 20px 0;
             text-align: center;
+            padding: 1rem;
         }
 
-        .footer-menu ul {
+        footer nav ul {
             list-style: none;
-            padding: 0;
-            margin: 0;
             display: flex;
             justify-content: center;
+            padding: 0;
         }
 
-        .footer-menu ul li {
+        footer nav ul li {
             margin: 0 15px;
         }
 
-        .footer-menu ul li a {
-            text-decoration: none;
+        footer nav ul li a {
             color: white;
-            font-size: 16px;
+            text-decoration: none;
         }
 
-        .footer-menu ul li a:hover {
-            text-decoration: underline;
+        footer .social-media {
+            margin-top: 20px;
         }
 
-        footer p {
-            margin-top: 10px;
-            font-size: 14px;
+        footer .social-media a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .search-bar input {
+                width: 80%;
+            }
+
+            main {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 90%;
+            }
+
+            .mobile-menu {
+                display: none;
+            }
+
+            .mobile-menu.show {
+                display: flex;
+            }
         }
     </style>
 </head>
 <body>
-    <header class="hero-image">
-        <!-- Main Menu -->
-        <nav class="main-menu">
+    <!-- Header and Navigation -->
+    <header>
+        <div class="logo">
+            <h1>MyReads</h1>
+            <p>A Heaven for Bibliophiles</p>
+        </div>
+        <nav>
             <ul>
-                <li><a href="#">Urdu Fiction</a>
-                    <ul class="dropdown">
-                        <li><a href="#">Romcom</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Urdu Books</a>
+                    <ul>
+                        <li><a href="#">Mystery</a></li>
                         <li><a href="#">Romance</a></li>
-                        <li><a href="#">Love Triangle</a></li>
-                        <li><a href="#">Thrill</a></li>
-                        <li><a href="#">Halal Romance</a></li>
-                        <li><a href="#">Social/Realistic</a></li>
+                        <li><a href="#">Fantasy</a></li>
+                        <li><a href="#">Science Fiction</a></li>
+                        <li><a href="#">Historical</a></li>
                     </ul>
                 </li>
-                <li><a href="#">English Fiction</a>
-                    <ul class="dropdown">
-                        <li><a href="#">Romcom</a></li>
+                <li><a href="#">English Books</a>
+                    <ul>
+                        <li><a href="#">Mystery</a></li>
                         <li><a href="#">Romance</a></li>
-                        <li><a href="#">Love Triangle</a></li>
-                        <li><a href="#">Thrill</a></li>
-                        <li><a href="#">Halal Romance</a></li>
-                        <li><a href="#">Social/Realistic</a></li>
+                        <li><a href="#">Fantasy</a></li>
+                        <li><a href="#">Science Fiction</a></li>
+                        <li><a href="#">Historical</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Library</a></li>
-                <li><a href="#">My eBooks</a></li>
+                <li><a href="#">Poetry</a></li>
+                <li><a href="#">Quotes</a></li>
+                <li><a href="#">Kids</a></li>
+                <li><a href="#">Sign In</a></li>
+                <li><a href="#">Sign Up</a></li>
             </ul>
         </nav>
-
-        <!-- Hero Text -->
-        <div class="hero-text">
-            <h1>Welcome to MyReads</h1>
-            <p>A heaven for bibliophiles!</p>
+        <!-- Hamburger Icon for Mobile -->
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#">Home</a>
+            <a href="#">Urdu Books</a>
+            <a href="#">English Books</a>
+            <a href="#">Poetry</a>
+            <a href="#">Quotes</a>
+            <a href="#">Kids</a>
+            <a href="#">Sign In</a>
+            <a href="#">Sign Up</a>
         </div>
-
-        <!-- Search Bar -->
-        <section class="search-bar">
-            <input type="text" placeholder="Search for books...">
-            <button>Search</button>
-        </section>
     </header>
 
-    <!-- Library Section -->
-    <section class="library">
-        <h2>Your Library</h2>
-        <p>Add and offline your favorite books here.</p>
-        <button>Add a Book</button>
-
-        <!-- Sign Up / Login Links -->
-        <div class="auth-options">
-            <a href="#">Sign Up</a> | <a href="#">Login</a>
-        </div>
-    </section>
-
-    <!-- Rating System -->
-    <div class="rating">
-        <input type="radio" name="star" id="star1"><label for="star1">★</label>
-        <input type="radio" name="star" id="star2"><label for="star2">★</label>
-        <input type="radio" name="star" id="star3"><label for="star3">★</label>
-        <input type="radio" name="star" id="star4"><label for="star4">★</label>
-        <input type="radio" name="star" id="star5"><label for="star5">★</label>
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input type="text" placeholder="Search for books, poetry, quotes...">
+        <button><i class="fas fa-search"></i></button>
     </div>
 
-    <!-- Featured Categories -->
-    <section class="featured-categories">
-        <div class="category-card">
-            <img src="urdu novels (1).png" alt="Urdu Novels">
-            <h3>Urdu Novels</h3>
-            <p>Explore our collection of Urdu novels.</p>
+    <!-- Main Content Section with Cards -->
+    <main>
+        <!-- Kids Section Card -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Kids Section">
+            <h3>Kids Section</h3>
+            <p>Enjoy fun story videos and books for kids!</p>
         </div>
-        <div class="category-card">
-            <img src="urdu novels.png" alt="English Novels">
-            <h3>English Novels</h3>
-            <p>Discover the best English novels.</p>
+
+        <!-- Urdu Books Card -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Urdu Books">
+            <h3>Urdu Books</h3>
+            <p>Explore a collection of amazing Urdu books.</p>
         </div>
-    </section>
+
+        <!-- English Books Card -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="English Books">
+            <h3>English Books</h3>
+            <p>Dive into popular English books and novels.</p>
+        </div>
+
+        <!-- Poetry Card -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Poetry">
+            <h3>Poetry</h3>
+            <p>Discover a world of beautiful poetry.</p>
+        </div>
+
+        <!-- Quotes Card -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Quotes">
+            <h3>Quotes</h3>
+            <p>Read inspiring and thought-provoking quotes.</p>
+        </div>
+    </main>
+
+    <!-- Library Section -->
+    <div id="library-section">
+        <h2>My Favorite Books</h2>
+        <input type="text" id="book-input" placeholder="Enter book title">
+        <button id="add-book">Add Book</button>
+
+        <div id="book-list"></div>
+    </div>
 
     <!-- Footer Section -->
     <footer>
-        <nav class="footer-menu">
+        <nav>
             <ul>
                 <li><a href="#">About Us</a></li>
                 <li><a href="#">Contact</a></li>
                 <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
             </ul>
         </nav>
-        <p>&copy; 2024 MyReads. All Rights Reserved.</p>
+        <div class="social-media">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
     </footer>
+
+    <!-- FontAwesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <!-- JavaScript to Toggle Menu and Library Functionality -->
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('show');
+        }
+
+        const bookInput = document.getElementById('book-input');
+        const addBookButton = document.getElementById('add-book');
+        const bookList = document.getElementById('book-list');
+
+        // Load books from Local Storage
+        function loadBooks() {
+            const books = JSON.parse(localStorage.getItem('books')) || [];
+            books.forEach(book => {
+                addBookToList(book);
+            });
+        }
+
+        // Add book to the list
+        function addBookToList(book) {
+            const div = document.createElement('div');
+            div.className = 'book';
+            div.textContent = book;
+            bookList.appendChild(div);
+        }
+
+        // Add book button click event
+        addBookButton.addEventListener('click', () => {
+            const bookTitle = bookInput.value;
+            if (bookTitle) {
+                addBookToList(bookTitle);
+                saveBook(bookTitle);
+                bookInput.value = '';
+            }
+        });
+
+        // Save book to Local Storage
+        function saveBook(book) {
+            const books = JSON.parse(localStorage.getItem('books')) || [];
+            books.push(book);
+            localStorage.setItem('books', JSON.stringify(books));
+        }
+
+        // Load books on page load
+        window.onload = loadBooks;
+    </script>
 </body>
 </html>
