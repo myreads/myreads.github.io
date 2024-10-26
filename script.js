@@ -7,11 +7,15 @@ const bookInput = document.getElementById('book-input');
 const addBookButton = document.getElementById('add-book');
 const bookList = document.getElementById('book-list');
 
+// Load books from Local Storage
 function loadBooks() {
     const books = JSON.parse(localStorage.getItem('books')) || [];
-    books.forEach(book => addBookToList(book));
+    books.forEach(book => {
+        addBookToList(book);
+    });
 }
 
+// Add book to the list
 function addBookToList(book) {
     const div = document.createElement('div');
     div.className = 'book';
@@ -19,6 +23,7 @@ function addBookToList(book) {
     bookList.appendChild(div);
 }
 
+// Add book button click event
 addBookButton.addEventListener('click', () => {
     const bookTitle = bookInput.value;
     if (bookTitle) {
@@ -28,10 +33,12 @@ addBookButton.addEventListener('click', () => {
     }
 });
 
+// Save book to Local Storage
 function saveBook(book) {
     const books = JSON.parse(localStorage.getItem('books')) || [];
     books.push(book);
     localStorage.setItem('books', JSON.stringify(books));
 }
 
+// Load books on page load
 window.onload = loadBooks;
