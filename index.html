@@ -10,8 +10,10 @@
 <body>
     <!-- Header and Navigation -->
     <header>
-        <h1>MyReads</h1>
-        <p>A Heaven for Bibliophiles</p>
+        <div class="logo">
+            <h1>MyReads</h1>
+            <p>A Heaven for Bibliophiles</p>
+        </div>
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
@@ -20,8 +22,21 @@
                 <li><a href="#">Poetry</a></li>
                 <li><a href="#">Quotes</a></li>
                 <li><a href="#">Kids</a></li>
+                <li><a href="#">Sign In</a></li>
+                <li><a href="#">Sign Up</a></li>
             </ul>
         </nav>
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#">Home</a>
+            <a href="#">Urdu Books</a>
+            <a href="#">English Books</a>
+            <a href="#">Poetry</a>
+            <a href="#">Quotes</a>
+            <a href="#">Kids</a>
+            <a href="#">Sign In</a>
+            <a href="#">Sign Up</a>
+        </div>
     </header>
 
     <!-- Search Bar -->
@@ -32,11 +47,11 @@
 
     <!-- Main Content Section with Cards -->
     <main>
-        <div class="card"><h3>Kids Section</h3><p>Fun story videos for kids!</p></div>
-        <div class="card"><h3>Urdu Books</h3><p>Explore amazing Urdu books.</p></div>
-        <div class="card"><h3>English Books</h3><p>Dive into popular English books.</p></div>
-        <div class="card"><h3>Poetry</h3><p>Beautiful poetry collection.</p></div>
-        <div class="card"><h3>Quotes</h3><p>Inspiring and thought-provoking quotes.</p></div>
+        <div class="card"><img src="https://via.placeholder.com/300x200" alt="Kids Section"><h3>Kids Section</h3><p>Enjoy fun story videos and books for kids!</p></div>
+        <div class="card"><img src="https://via.placeholder.com/300x200" alt="Urdu Books"><h3>Urdu Books</h3><p>Explore a collection of amazing Urdu books.</p></div>
+        <div class="card"><img src="https://via.placeholder.com/300x200" alt="English Books"><h3>English Books</h3><p>Dive into popular English books and novels.</p></div>
+        <div class="card"><img src="https://via.placeholder.com/300x200" alt="Poetry"><h3>Poetry</h3><p>Discover a world of beautiful poetry.</p></div>
+        <div class="card"><img src="https://via.placeholder.com/300x200" alt="Quotes"><h3>Quotes</h3><p>Read inspiring and thought-provoking quotes.</p></div>
     </main>
 
     <!-- Library Section -->
@@ -49,10 +64,8 @@
 
     <!-- Footer -->
     <footer>
-        <p>Follow Us</p>
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
+        <nav><ul><li><a href="#">About Us</a></li><li><a href="#">Contact</a></li><li><a href="#">Privacy Policy</a></li></ul></nav>
+        <div class="social-media"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-tiktok"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div>
     </footer>
 
     <script src="js/script.js"></script>
