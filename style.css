@@ -114,9 +114,8 @@ nav ul li ul li a {
     border-radius: 25px;
     cursor: pointer;
     color: white;
-    margin-left: -50px;
     position: absolute;
-    right: 30%;
+    right: 15%;
 }
 
 .search-bar button i {
