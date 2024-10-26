@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyReads - A Heaven for Bibliophiles</title>
-    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Link to FontAwesome for social media icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Header and Navigation -->
@@ -17,8 +19,24 @@
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Urdu Books</a></li>
-                <li><a href="#">English Books</a></li>
+                <li><a href="#">Urdu Books</a>
+                    <ul>
+                        <li><a href="#">Mystery</a></li>
+                        <li><a href="#">Romance</a></li>
+                        <li><a href="#">Fantasy</a></li>
+                        <li><a href="#">Science Fiction</a></li>
+                        <li><a href="#">Historical</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">English Books</a>
+                    <ul>
+                        <li><a href="#">Mystery</a></li>
+                        <li><a href="#">Romance</a></li>
+                        <li><a href="#">Fantasy</a></li>
+                        <li><a href="#">Science Fiction</a></li>
+                        <li><a href="#">Historical</a></li>
+                    </ul>
+                </li>
                 <li><a href="#">Poetry</a></li>
                 <li><a href="#">Quotes</a></li>
                 <li><a href="#">Kids</a></li>
@@ -26,6 +44,7 @@
                 <li><a href="#">Sign Up</a></li>
             </ul>
         </nav>
+        <!-- Hamburger Icon for Mobile -->
         <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
         <div class="mobile-menu" id="mobileMenu">
             <a href="#">Home</a>
@@ -47,11 +66,40 @@
 
     <!-- Main Content Section with Cards -->
     <main>
-        <div class="card"><img src="https://via.placeholder.com/300x200" alt="Kids Section"><h3>Kids Section</h3><p>Enjoy fun story videos and books for kids!</p></div>
-        <div class="card"><img src="https://via.placeholder.com/300x200" alt="Urdu Books"><h3>Urdu Books</h3><p>Explore a collection of amazing Urdu books.</p></div>
-        <div class="card"><img src="https://via.placeholder.com/300x200" alt="English Books"><h3>English Books</h3><p>Dive into popular English books and novels.</p></div>
-        <div class="card"><img src="https://via.placeholder.com/300x200" alt="Poetry"><h3>Poetry</h3><p>Discover a world of beautiful poetry.</p></div>
-        <div class="card"><img src="https://via.placeholder.com/300x200" alt="Quotes"><h3>Quotes</h3><p>Read inspiring and thought-provoking quotes.</p></div>
+        <!-- Kids Section Card -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Kids Section">
+            <h3>Kids Section</h3>
+            <p>Enjoy fun story videos and books for kids!</p>
+        </div>
+
+        <!-- Urdu Books Card -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Urdu Books">
+            <h3>Urdu Books</h3>
+            <p>Explore a collection of amazing Urdu books.</p>
+        </div>
+
+        <!-- English Books Card -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="English Books">
+            <h3>English Books</h3>
+            <p>Dive into popular English books and novels.</p>
+        </div>
+
+        <!-- Poetry Card -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Poetry">
+            <h3>Poetry</h3>
+            <p>Discover a world of beautiful poetry.</p>
+        </div>
+
+        <!-- Quotes Card -->
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Quotes">
+            <h3>Quotes</h3>
+            <p>Read inspiring and thought-provoking quotes.</p>
+        </div>
     </main>
 
     <!-- Library Section -->
@@ -59,15 +107,28 @@
         <h2>My Favorite Books</h2>
         <input type="text" id="book-input" placeholder="Enter book title">
         <button id="add-book">Add Book</button>
+
         <div id="book-list"></div>
     </div>
 
-    <!-- Footer -->
+    <!-- Footer Section -->
     <footer>
-        <nav><ul><li><a href="#">About Us</a></li><li><a href="#">Contact</a></li><li><a href="#">Privacy Policy</a></li></ul></nav>
-        <div class="social-media"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-tiktok"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div>
+        <nav>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
+        </nav>
+        <div class="social-media">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
 </body>
 </html>
